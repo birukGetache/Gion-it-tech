@@ -19,7 +19,6 @@ const DynamicHome = dynamic(
       useEffect(() => {
         if (typeof window !== "undefined") {
           const sections = document.querySelectorAll("section");
-
           const observer = new IntersectionObserver(
             (entries) => {
               const newVisibleSections = { ...visibleSections };
@@ -28,7 +27,7 @@ const DynamicHome = dynamic(
               });
               setVisibleSections(newVisibleSections);
             },
-            { threshold: [0.4, 1] }
+            { threshold: [0.2, 1] }
           );
 
           sections.forEach((section) => observer.observe(section));
@@ -39,7 +38,7 @@ const DynamicHome = dynamic(
 
       return (
         <div className="w-screen">
-          <img src="/grid.svg" alt="grid" style={{ height: "100vh" }} />
+          <img src="/grid.svg" alt="grid" style={{ height: "100vh" , width:"100vw" }} />
           <div className="absolute top-0 w-screen">
             <Navbar />
             <Text />
@@ -52,7 +51,7 @@ const DynamicHome = dynamic(
           <Team isVisible={visibleSections.team} />
           <Project isVisible={visibleSections.project} />
           <Partner isVisible={visibleSections.partner} />
-          <Fotter isVisible={visibleSections.fotter} />
+          <Fotter isVisible={visibleSections.contact} /> {/* Make sure isVisible is passed */}
         </div>
       );
     }),

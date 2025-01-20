@@ -1,45 +1,39 @@
+"use client"
+// MapComponent.js
 import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-
-// Fix default marker icon issue in Leaflet
 import L from 'leaflet';
-import markerIcon from 'leaflet/dist/images/marker-icon.png';
-import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 
-let DefaultIcon = L.icon({
-  iconUrl: markerIcon,
-  shadowUrl: markerShadow,
-  iconAnchor: [12, 41],
+// Fix Leaflet marker icon issue
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png').default,
+  iconUrl: require('leaflet/dist/images/marker-icon.png').default,
+  shadowUrl: require('leaflet/dist/images/marker-shadow.png').default,
 });
 
-L.Marker.prototype.options.icon = DefaultIcon;
-
 const MapComponent = () => {
-  return (
-    <div style={{ height: '100vh', width: '100%' }}>
-      <MapContainer
-        center={[11.59364000, 37.39077000]}// Default coordinates [latitude, longitude]
-        zoom={13} // Default zoom level
-        style={{ height: '100%', width: '100%' }}
-      >
-        {/* Add a tile layer (map style) */}
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        />
+  const position = [11.5993, 37.3737]; // Example coordinates (latitude, longitude)
 
-        {/* Add a marker */}
-        <Marker position={[ 11.59364000 ,37.39077000  ]} >
-          <Popup>
-            Ghion <br /> It solution!
-          </Popup>
-        </Marker>
-      </MapContainer>
-    </div>
+  return (
+    <MapContainer
+      center={position}
+      zoom={14}
+      style={{ height: '100%', width: '100%' , zIndex:"5" }}
+      scrollWheelZoom={false} // Disable zoom on scroll
+    >
+      <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      />
+      <Marker position={position}>
+        <Popup>
+          Gion BiT
+        </Popup>
+      </Marker>
+    </MapContainer>
   );
 };
 
 export default MapComponent;
-
-//make it map earth is black not white

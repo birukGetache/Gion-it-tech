@@ -9,7 +9,7 @@ const DynamicMap = dynamic(() => import("./Map"), {
   ssr: false, // Disable server-side rendering for the Map component
 });
 
-const Footer = () => {
+const Footer = ({ isVisible }) => {
   const footerLinks = [
     { name: "About Us", href: "#about" },
     { name: "Services", href: "#services" },
@@ -32,9 +32,9 @@ const Footer = () => {
         </div>
 
         {/* Section 2: Links and Map */}
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-3 mb-10">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-12 lg:gap-3 mb-10">
           <div className="gap-6 mb-12 h-full p-10 rounded-md bg-white flex flex-col justify-center bg-opacity-10">
-            <p className="text-gray-600 hover:text-white text-center">Quick Links</p>
+            <p className="text-gray-600 hover:text-white text-4xl text-center">Quick Links</p>
             {footerLinks.map((link, index) => (
               <div key={index}>
                 <ul>
@@ -67,21 +67,27 @@ const Footer = () => {
         </div>
 
         {/* Section 3: Social Media Links */}
-        <div className="bg-gray-700 rounded-lg p-8">
-          <h3 className="text-2xl font-semibold text-center text-gray-300 mb-6">Subscribe to Our Social Media Pages</h3>
-          <div className="grid grid-cols-3 gap-10 place-items-center mx-auto max-w-32">
-          <a href="  https://www.instagram.com/nahom.k_12/" target="_blank" >
-              <FaInstagram size={40} />
-            </a>
-            <a href="https://t.me/nahigoph12" target="_blank">
-
-              <FaTelegramPlane size={40} />
-            </a>
-            <a href="https://www.linkedin.com/in/nahom-keneni-638290330/">
-              <FaLinkedin size={40} />
-            </a>
-          </div>
-        </div>
+        <section
+  className={`container mx-auto px-4 py-12 service rounded-md bg-white bg-opacity-10 transition-opacity duration-500 ease-in-out ${
+       !isVisible ? "opacity-100 animate-serviceanime" : "opacity-0"
+  }`}
+  id="contact"
+>
+  <h3 className="text-2xl font-semibold text-center text-gray-300 mb-6 font-Comic">
+    Subscribe to Our Social Media Pages
+  </h3>
+  <div className="grid grid-cols-3 gap-10 place-items-center mx-auto max-w-32">
+    <a href="https://www.instagram.com/nahom.k_12/" target="_blank">
+      <FaInstagram size={40} />
+    </a>
+    <a href="https://t.me/nahigoph12" target="_blank">
+      <FaTelegramPlane size={40} />
+    </a>
+    <a href="https://www.linkedin.com/in/nahom-keneni-638290330/">
+      <FaLinkedin size={40} />
+    </a>
+  </div>
+</section>
       </div>
       <div className="mt-6 md:mt-0 ">
             <p className="text-gray-400 text-sm  md:text-left text-center flex justify-center">
