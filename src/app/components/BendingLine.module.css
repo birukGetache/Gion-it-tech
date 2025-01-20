@@ -1,0 +1,50 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center; /* This centers content both vertically and horizontally */
+    width: 100%;
+    overflow-x: hidden;
+    background-color: transparent;
+    padding-left: 70px;
+    padding-right: 70px;
+    height : 100vh;
+
+
+}
+
+/* Mobile-specific adjustments */
+
+  
+  .svg {
+    width: 100%;
+    padding: 0;
+    margin-top:-80px;
+    height: fit-content;
+    animation: moveLine 4s linear infinite; /* Optional movement for the line */
+  }
+
+  @media (max-width: 640px) {
+    .container{
+      padding-left: 30px;
+      padding-right: 30px;
+      grid-template-columns: 1fr;
+      grid-template-rows: fit-content(400px) fit-content(300px);
+
+    }
+    .svg {
+      max-width: 400px;
+      margin-top:10px;
+    }
+  }
+  
+  /* Optional: Uncomment if you want to animate the line 
+  @keyframes moveLine {
+    0% {
+      transform: translateX(-10%);
+    }
+    100% {
+      transform: translateX(10%);
+    }
+  }
+    */
+  
