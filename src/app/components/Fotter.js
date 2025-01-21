@@ -24,7 +24,7 @@ const Footer = ({ isVisible }) => {
         <div className="flex flex-col md:flex-row items-center justify-between mb-12">
           <div className="flex items-center space-x-4">
             <img src="/logo.png" alt="Logo" className="w-24 h-24 rounded-full" />
-            <p className="text-lg text-gray-300">
+            <p className="text-lg text-gray-500">
               Your trusted partner for innovative solutions. We deliver excellence in every project.
             </p>
           </div>
@@ -39,7 +39,7 @@ const Footer = ({ isVisible }) => {
               <div key={index}>
                 <ul>
                   <li className="text-center">
-                    <a href={link.href} className="text-gray-400 hover:text-white">
+                    <a href={link.href} className="text-gray-500 hover:text-white">
                       {link.name}
                     </a>
                   </li>
@@ -50,7 +50,7 @@ const Footer = ({ isVisible }) => {
           <div className="box-border rounded-md overflow-hidden w-full h-96">
             <DynamicMap />
           </div>
-          <div className="bg-white bg-opacity-10 rounded-md flex flex-col items-start p-10 text-white justify-center">
+          <div className="bg-white bg-opacity-10 rounded-md flex flex-col items-start p-10 text-gray-500 justify-center">
             <div className="flex">
               <FaPhone size={20} />
               <a href="tel:0983446134" className="ml-2">
@@ -68,12 +68,12 @@ const Footer = ({ isVisible }) => {
 
         {/* Section 3: Social Media Links */}
         <section
-  className={`container mx-auto px-4 py-12 service rounded-md bg-white bg-opacity-10 transition-opacity duration-500 ease-in-out ${
+  className={`container mx-auto px-4 py-12 service rounded-md bg-white bg-opacity-10 transition-opacity text-gray-600 duration-500 ease-in-out ${
        !isVisible ? "opacity-100 animate-serviceanime" : "opacity-0"
   }`}
   id="contact"
 >
-  <h3 className="text-2xl font-semibold text-center text-gray-300 mb-6 font-Comic">
+  <h3 className="text-2xl font-semibold text-center text-gray-500 mb-6 font-Comic">
     Subscribe to Our Social Media Pages
   </h3>
   <div className="grid grid-cols-3 gap-10 place-items-center mx-auto max-w-32">

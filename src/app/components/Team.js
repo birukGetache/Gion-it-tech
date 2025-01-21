@@ -46,6 +46,16 @@ const teamMembers = [
     twitter: "https://twitter.com/Kaleb",
     profile: "https://example.com/Kaleb",
   },
+  {
+    id: 5,
+    name: "Neftalem Girma Assefa",
+    role: " digital marketing expert",
+    special: "Content creator and Digital marketing expert and video Editor",
+    image: "/IMG_1810.jpg",
+    linkedin: "https://www.linkedin.com/in/danawit-habtamu-203722338?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    twitter: "https://twitter.com/Kaleb",
+    profile: "https://example.com/Kaleb",
+  },
 ];
 
 const Team = ({ isVisible }) => {
